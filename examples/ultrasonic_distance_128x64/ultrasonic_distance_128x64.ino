@@ -5,10 +5,8 @@
 // Allocate OLED display object
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
-
 // Allocate sensor objects
 Ultrasonic Ultrasonic(1,2);
-
 // Allocate plot object
 Plot ultrasonicPlot(&display);
 
@@ -26,7 +24,6 @@ void setup()   {
   senseBoxIO.powerI2C(true);
   delay(1000); // wait 1000ms
 
-  
   // Sometimes address 0x3C is needed instead of 0x3D
   // You can use an I2C scanner to check which address is used by your display
   display.begin(SSD1306_SWITCHCAPVCC, 0x3D);
@@ -73,5 +70,3 @@ void loop() {
   Serial.print(t/measurements, 2);
   Serial.println("s");
 }
-
-
